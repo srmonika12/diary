@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'styles.css' %}">
+</head>
+
+<body>
+    <nav><h1>DEAR DIARY</h1>
+        <button class="button-link" onclick="displayform()" style="width: 190px; height: 40px;">NEW ENTRY</button></nav><br><br>
+        <br><br>
+    <div class="popup" id="formentry" style="display:none;">
+        <div class="popup-content">
+            <a class="close-btn" href = "{% url 'disp' %}">&times;</a>
+    <form action="insert" method="post">
+        {%csrf_token%}
+        {{form}}
+        <input class="button-link" type="submit">
+
+    </form></div>
+    </div>
+
+    {%if edit_id%}
+    <div class="popup" id="editentry">
+        <div class="popup-content">
+            <!--span class="close-btn2">&times;</span-->
+            <a class="close-btn" href = "{% url 'disp' %}">&times;</a>
+
+    <form action="{% url 'edit' edit_id %}" method="post">
+        {%csrf_token%}
+        {{forme}}
+        <input class="button-link" type="submit">
+
+    </form></div>
+    </div>{%endif%}
+
+    <div class="container">
+        {% for obj in objs%}
+        <div class="entry">
+            <h3 class="sticky-title">{{obj.title}}</h3>
+            <div class="content">
+                <h4>{{obj.date}}</h4>
+                {{obj.content}}
+            </div>
+            <span class="sticky-link"><a href="delete/{{obj.id}}" class="button-link">delete</a>&nbsp;&nbsp;<a class="button-link" href="edit/{{obj.id}}">edit</a></span>
+        </div>
+        {%endfor%}
+    </div>
+
+        <script>
+            function displayform(){
+                document.getElementById('formentry').style.display="flex";
+            }
+            
+            
+        </script>
+</body>
+</html>

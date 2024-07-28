@@ -1,0 +1,163 @@
+/* styles.css */
+
+body {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Sitka','Lucida Handwriting';
+    background-image: url("bg.jpg");
+    background-attachment: fixed;
+    /*background-size: cover;  Optional: scales image to cover entire viewport */
+    background-repeat: no-repeat
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Ensure it sits on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    display: flex; /* Added flex to center */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.popup-content {
+    background-color: #fefefe;
+    background-image: url("bg.jpg");
+
+    padding: 20px;
+    border: 2px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+    position: relative; /* Necessary for close button positioning */
+    border-radius: 10px;
+    font-weight: bold;
+}
+input{
+    border: 2px solid black;
+    width:60%;
+    background-color: rgba(232, 195, 153, 0.584);
+    font-family: 'Lucida Handwriting';
+}
+textarea{
+    width:100%;
+    height:auto;
+    font-family: 'Lucida Handwriting';
+    background-color: rgba(232, 195, 153, 0.584);
+    border: 2px solid black;
+
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Optional: adds space between the .test elements */
+    width: calc(300px * 3 + 40px * 2); /* Adjust width for 3 elements + gaps */
+    margin: auto; /* Center the container */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 0px;
+}
+
+.entry {
+    border: 0px solid rgb(170, 111, 115);
+    width: 300px;
+    height: 400px;
+    overflow: hidden; /* Adds scroll if content exceeds height */
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(238, 169, 144, 0.594);
+    flex-direction: column;
+    padding: 0;
+}
+
+.sticky-title {
+    position: sticky;
+    margin: 0;
+    padding: 19px;
+    z-index: 10;
+    border-bottom: 1px solid #ccccccbe;
+    text-align: center;
+    background-color: rgb(238, 169, 144);
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+.sticky-link {
+    /*position: sticky;
+    bottom: 0;*/
+    z-index: 10; /* Lower z-index to avoid overlapping title */
+    background-color: rgba(238, 169, 144, 0.594); /* Ensure link background is the same as entry */
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 5px 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #aa6f73;
+    color: white;
+    font-family: 'Lucida Handwriting';
+
+}
+
+.button-link:hover {
+    background-color: #66545e;
+}
+
+nav{
+    margin:0;
+    padding: 10px;
+    background-color: rgb(170,111,115);
+    height: 120px;
+    width:100%;
+}
+
+/*h3{
+    background-color: rgb(221, 116, 97);
+}*/
